@@ -4,6 +4,8 @@
  */
 package com.motorph.payroll.gui;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -49,7 +51,20 @@ public class EmployeePage extends javax.swing.JFrame {
 
         // Set the table model with the employee data
         employeeTable.setModel(new javax.swing.table.DefaultTableModel(rowData, columnNames));
+         // Add MouseListener to handle row selection
+    employeeTable.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            // Get the row clicked on
+            int row = employeeTable.rowAtPoint(e.getPoint());
+            String employeeId = (String) employeeTable.getValueAt(row, 0);  // Assuming employeeId is in the first column
+            
+            // Open the EmployeeDetailPage
+            new EmployeeDetailPage(employeeId).setVisible(true);
+        }
+    });
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

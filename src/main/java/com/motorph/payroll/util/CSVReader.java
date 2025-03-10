@@ -45,12 +45,16 @@ public class CSVReader {
                 currentValue.append(c);
             }
         }
-        
-        // Add the last value if any
+
+        // Add the last value (even if it's empty or contains data)
         values.add(currentValue.toString().trim());
-        
+
+        // Debugging: Log the parsed values
+        System.out.println("Parsed CSV Line: " + String.join(", ", values));
+
         return values.toArray(new String[0]);
     }
 }
+
 
 

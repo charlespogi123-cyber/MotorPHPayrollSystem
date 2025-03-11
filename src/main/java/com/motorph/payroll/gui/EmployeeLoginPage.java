@@ -24,6 +24,9 @@ public class EmployeeLoginPage extends javax.swing.JFrame {
         initComponents();
         passwordField.setText("");
         setupLoginButtonActionListener(); // Setup the action listener after initialization
+        setTitle("Employee Login"); // Full name for the window title
+        userLabel.setText("NAME");
+        passLabel.setText("PASSWORD");
     } 
 
     //private static class JTextField extends JTextPane {
